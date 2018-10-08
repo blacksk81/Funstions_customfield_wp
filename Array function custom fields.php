@@ -6,42 +6,41 @@ SIEMPRE ESTO DEBE ESTAR EN ARCHIVO FUNCTIONS.PHP DEL TEMA DE WORDPRESS...
 
 
 // CREAR CUSTOM POST TYPE 
-add_action('init', 'wildrover_room');
-	function wildrover_room() {
+add_action('init', 'wss_Portafolio');
+  function wss_Portafolio() {
     $labels = array(
-      	'name'             => _x('Room', 'wildrover'),
-      	'singular_name'    => _x('Room', 'post type singular name', 'wildrover'),
-      	'menu_name'        => _x('Room', 'admin menu', 'wildrover'),
-      	'name_admin_bar'   => _x('Room', 'add new on admin bar', 'wildrover'),
-      	'add_new'          => _x('Add New', 'book', 'wildrover'),
-      	'add_new_item'     => __('Add New Room', 'wildrover'),
-      	'new_item'         => __('New Rooms', 'wildrover'),
-      	'edit_item'        => __('Edit Rooms', 'wildrover'),
-      	'view_item'        => __('View Rooms', 'wildrover'),
-      	'all_items'        => __('All Rooms', 'wildrover'),
-      	'search_items'     => __('Search Rooms', 'wildrover'),
-      	'parent_item_colon'=> __('Parent Rooms', 'wildrover'),
-      	'not_found'        => __('No Rooms found.', 'wildrover'),
-      	'not_found_in_trash'=>__('No Rooms found in Trash.', 'wildrover')
+        'name'               => _x('Portafolio', 'wss'),
+        'singular_name'      => _x('Portafolio', 'post type singular name', 'wss'),
+        'menu_name'          => _x('Portafolio', 'admin menu', 'wss'),
+        'name_admin_bar'     => _x('Portafolio', 'add new on admin bar', 'wss'),
+        'add_new'            => _x('Nuevo Portafolio', 'book', 'wss'),
+        'add_new_item'       => __('Agregar Nuevo Portafolio', 'wss'),
+        'new_item'           => __('Nuevos Portafolios', 'wss'),
+        'edit_item'          => __('Editar Portafolios', 'wss'),
+        'view_item'          => __('Ver Portafolio', 'wss'),
+        'all_items'          => __('Todos Portafolio', 'wss'),
+        'search_items'       => __('Buscar Portafolio', 'wss')
 
     );
     $args = array(
-      	'labels'            => $labels,
-      	'description'       => __( 'Description.', 'wildrover' ),
-      	'public'            => true,
-      	'publicly_queryable'=> true,
-      	'show_ui'           => true,
-      	'show_in_menu'      => true,
-      	'query_var'         => true,
-      	'rewrite'           => array( 'slug' => 'room'),
-      	'capability_type'   => 'post',
-      	'has_archive'       => true,
-      	'hierarchical'      => false,
-      	'menu_position'     => 6,
-      	'supports'          => array( 'title', 'editor', 'thumbnail' ),
-      	'taxonomies'        => array( 'category' ),
+        'labels'            => $labels,
+        'description'       => __( 'Description.', 'wss' ),
+        'public'            => true,
+        'publicly_queryable'=> true,
+        'show_ui'           => true,
+        'show_in_menu'      => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'Portafolio'), // preURLS
+        'capability_type'   => 'post',
+        'has_archive'       => true,
+        'hierarchical'      => false,
+        'menu_position'     => 6,
+        'menu_icon'         => 'dashicons-format-gallery',
+        'supports'          => array( 'title', 'editor', 'thumbnail' ),
+        'taxonomies'        => array( 'category' ),
     );
-    register_post_type( 'room', $args );
+    register_post_type( 'Portafolios', $args ); 
+    //nombre portafolios de esta linea tiene que ser igual al post_type del array de abajo
 }
 
 
@@ -57,7 +56,7 @@ add_action('init', 'wildrover_room');
     'post_per_page' => -1,
     'orderby' => 'title',
     'order' => 'ASC',
-    'category_name' => 'cuarto');
+    'category_name' => 'cuarto'); //filtrado de categoria
         $loop = new WP_Query($args);
         while($loop->have_posts()): $loop->the_post();?>
       <!-- aqui copias todas las variables sin pasarte de endwhile -->
