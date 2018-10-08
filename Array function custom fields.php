@@ -1,7 +1,5 @@
 /*
 SIEMPRE ESTO DEBE ESTAR EN ARCHIVO FUNCTIONS.PHP DEL TEMA DE WORDPRESS...
-
-
 */
 
 
@@ -47,9 +45,9 @@ add_action('init', 'wss_Portafolio');
                     
 <!--
   este array trae la informacion cread desde custob fields solot tiene que crear los campos y copiarlos como variable
-
   lo pegas en la pagina donde lo usaras
 -->
+
 <?php
     $args = array(
     'post_type' => 'room',
@@ -60,10 +58,10 @@ add_action('init', 'wss_Portafolio');
         $loop = new WP_Query($args);
         while($loop->have_posts()): $loop->the_post();?>
       <!-- aqui copias todas las variables sin pasarte de endwhile -->
-      <?php the_title(); ?>
-            <?php the_field('precio'); ?>
-            <?php the_field('capacidad'); ?>
-          <?php the_field('descripcion'); ?>
-          <!-- hasta aqui -->
-         <?php endwhile; wp_reset_postdata(); ?>    
-?>
+        <?php the_title(); ?> <!-- Titulo del Documento  -->
+        <?php the_field('precio'); ?>
+        <?php the_field('capacidad'); ?>
+        <?php the_field('descripcion'); ?>
+
+<!-- hasta aqui -->
+<?php endwhile; wp_reset_postdata(); ?>    
