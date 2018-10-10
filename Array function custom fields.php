@@ -50,7 +50,7 @@ add_action('init', 'wss_Portafolio');
 
 <?php
     $args = array(
-    'post_type' => 'room',
+    'post_type' => 'room', // el post type tambiense usa para llamas a los post de entrada o declarar a lo que se llama en el custom type
     'post_per_page' => -1,
     'orderby' => 'title',
     'order' => 'ASC',
@@ -59,6 +59,9 @@ add_action('init', 'wss_Portafolio');
         while($loop->have_posts()): $loop->the_post();?>
       <!-- aqui copias todas las variables sin pasarte de endwhile -->
         <?php the_title(); ?> <!-- Titulo del Documento  -->
+        <?php the_content(); ?> // toman el contenido de textaeres 
+        <?php the_excerpt(); ?> // muestra un extrapto del textarea
+        <?php the_post_thumbnail(); ?> // llama a la imagen destacada
         <?php the_field('precio'); ?>
         <?php the_field('capacidad'); ?>
         <?php the_field('descripcion'); ?>
