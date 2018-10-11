@@ -1,3 +1,8 @@
+
+<?php 
+
+//ESTOS LO PEGAS EN LA CARPETA FUNCTION.PHP DEL TEMA QUE CREES
+
 // Vincular estilo 
 	get_template_directory_uri();  nos ubica en nuetro directorio raiz para ubicar la clase que deseamos llamas
 
@@ -18,3 +23,5 @@
 
 	}
 	add_action( 'wp_enqueue_scripts', 'wpdocs_theme_name_scripts' );
+
+?>
